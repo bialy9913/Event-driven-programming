@@ -31,18 +31,19 @@ public class MenuItemsController extends Thread{
                 clickOnDriverLicenceNew();
                 clickOnDriverLicenceDuplicate();
                 clickOnCarIdentityCardChange();
+                clickOnDriverChangeDriverData();
             }
         }
     }
 
-    public void clickOnRegisterCarPoland(){
+    private void clickOnRegisterCarPoland(){
         createMenuItems.getRegisterCarPoland().setOnAction(e ->{
             hideOtherObjects.hide(createVboxes.getCarRegistration(),0);
             createVboxes.getCarRegistration().setVisible(true);
         });
 
     }
-    public void clickOnCarRegistrationDeregister(){
+    private void clickOnCarRegistrationDeregister(){
         createMenuItems.getCarRegistrationDeregister().setOnAction(e->{
             hideOtherObjects.hide(new VBox(),1);
             createTextFields.getCarRegistrationDeregisterVinNumber().setVisible(true);
@@ -52,7 +53,7 @@ public class MenuItemsController extends Thread{
             createButtons.getCarRegistrationDeregister().setVisible(true);
         });
     }
-    public void clickOnCarIdentityCardChange(){
+    private void clickOnCarIdentityCardChange(){
         createMenuItems.getCarIdentityCardChange().setOnAction(e -> {
             hideOtherObjects.hide(new VBox(),1);
             createButtons.getCarIdentityCardChange().setTranslateX(createTextFields.getCarIdentityCardVinNumber().getTranslateX());
@@ -63,7 +64,7 @@ public class MenuItemsController extends Thread{
         });
     }
     //Driver--------------------------------------------------------------------------
-    public void clickOnDriverCreateDriver(){
+    private void clickOnDriverCreateDriver(){
         createMenuItems.getDriverCreateDriver().setOnAction(e->{
             hideOtherObjects.hide(createVboxes.getCreateDriver(),0);
             createVboxes.getCreateDriver().setVisible(true);
@@ -71,7 +72,7 @@ public class MenuItemsController extends Thread{
             globalVariables.setDriverCheckWasClicked(false);
         });
     }
-    public void clickOnDriverCheckDriver(HideOtherObjects hideOtherObjects){
+    private void clickOnDriverCheckDriver(HideOtherObjects hideOtherObjects){
         createMenuItems.getDriverCheckDriver().setOnAction(e->{
             hideOtherObjects.hide(new VBox(),1);
             createButtons.getDriverCheckDriver().setTranslateX(createTextFields.getDriverGivenPesel().getTranslateX());
@@ -83,7 +84,7 @@ public class MenuItemsController extends Thread{
             globalVariables.setDriverCheckWasClicked(true);
         });
     }
-    public void clickOnDriverChangeDriverData(HideOtherObjects hideOtherObjects){
+    private void clickOnDriverChangeDriverData(){
         createMenuItems.getDriverChangeData().setOnAction(e->{
             hideOtherObjects.hide(new VBox(),1);
             createButtons.getDriverCheckDriver().setTranslateX(createTextFields.getDriverGivenPesel().getTranslateX());
@@ -96,7 +97,7 @@ public class MenuItemsController extends Thread{
         });
     }
     //--------------------------------------------------------------------------------
-    public void clickOnDriverLicenceDuplicate(){
+    private void clickOnDriverLicenceDuplicate(){
         createMenuItems.getDriverLicenceDuplicate().setOnAction(e->{
             hideOtherObjects.hide(new VBox(),1);
             createButtons.getDriverLicenceDuplicate().setTranslateX(createTextFields.getDriverGivenPesel().getTranslateX());
@@ -106,7 +107,7 @@ public class MenuItemsController extends Thread{
             createButtons.getDriverLicenceDuplicate().setVisible(true);
         });
     }
-    public void clickOnDriverLicenceNew(){
+    private void clickOnDriverLicenceNew(){
         createMenuItems.getDriverLicenceNew().setOnAction(e->{
             hideOtherObjects.hide(new VBox(),1);
             createButtons.getDriverLicenceCreateNew().setTranslateX(createTextFields.getDriverGivenPesel().getTranslateX());

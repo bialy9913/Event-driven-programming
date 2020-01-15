@@ -41,6 +41,8 @@ public class GlobalVariables {
 
     private int carIdentityCardChangeCardExists=0;
 
+    private int changeDriverDataConfirmationDriverExists=0;
+
     public GlobalVariables(){
 
     }
@@ -203,5 +205,11 @@ public class GlobalVariables {
     }
     public void setThreadStartedReading(int threadStartedReading) {
         this.threadStartedReading = threadStartedReading;
+    }
+    public int getChangeDriverDataConfirmationDriverExists() {
+        return changeDriverDataConfirmationDriverExists;
+    }
+    public void setChangeDriverDataConfirmationDriverExists(int changeDriverDataConfirmationDriverExists) {
+        this.changeDriverDataConfirmationDriverExists = changeDriverDataConfirmationDriverExists;
     }
 }

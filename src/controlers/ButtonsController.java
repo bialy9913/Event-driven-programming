@@ -12,6 +12,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.TypedQuery;
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class ButtonsController extends Thread{
     private int APP_W;
@@ -69,8 +70,8 @@ public class ButtonsController extends Thread{
                 clickOnCreateEmployee();
                 clickOnCreateEmployeeConfirm();
                 clickOnCreateDriver();
-                //clickOnCheckDriver();
-                //clickOnChangeDriverDataConfirmation();
+                clickOnCheckDriver();
+                clickOnChangeDriverDataConfirmation();
                 clickOnDriverLicenceNew();
                 clickOnDriverLicenceDuplicate();
                 clickOnCarIdentityCardChange();
@@ -133,6 +134,7 @@ public class ButtonsController extends Thread{
                 readFromDatabase.setCarIdentityCard(carIdentityCard);
                 readFromDatabase.setCarRegistration(true);
                 createThread=true;
+                globalVariables.setThreadStartedReading(1);
             }
             else{
                 texts.setnotFilledFields(createVboxes.getCarRegistration().getTranslateX()+createVboxes.getCarRegistration().getWidth()/2.0-texts.getnotFilledFields().getLayoutBounds().getWidth()/2.0
@@ -150,6 +152,7 @@ public class ButtonsController extends Thread{
                 currentThreadInDB.setReadFromDatabase(readFromDatabase);
                 readFromDatabase.setDeregisterCar(true);
                 createThread=true;
+                globalVariables.setThreadStartedReading(1);
             }
             else{
                 texts.setnotFilledFields(createVboxes.getCarRegistration().getTranslateX()+createVboxes.getCarRegistration().getWidth()/2.0-texts.getnotFilledFields().getLayoutBounds().getWidth()/2.0
@@ -212,6 +215,7 @@ public class ButtonsController extends Thread{
                 readFromDatabase.setDrivers(drivers);
                 readFromDatabase.setCreateDriver(true);
                 createThread=true;
+                globalVariables.setThreadStartedReading(1);
             }
             else{
                 texts.setnotFilledFields(APP_W/2.0-texts.getnotFilledFields().getLayoutBounds().getWidth()/2.0
@@ -284,68 +288,60 @@ public class ButtonsController extends Thread{
     }
     public void clickOnChangeDriverDataConfirmation(){
         createButtons.getDriverChangeDataConfirmation().setOnAction(e->{
+            ArrayList<String> sqlQueries=new ArrayList<>();
+            boolean tmp=false;
             EntityManager entityManager=entityManagerFactory.createEntityManager();
             Drivers drivers;
             String statement="select d from Drivers d where pesel='"+createTextFields.getDriverGivenPesel().getText()+"'";
-            try{
-                TypedQuery<Drivers> query=entityManager.createQuery(statement,Drivers.class);
-                drivers=query.getSingleResult();
+            try {
+                TypedQuery<Drivers> query = entityManager.createQuery(statement, Drivers.class);
+                drivers = query.getSingleResult();
 
-                String Driver = "com.mysql.jdbc.Driver";
-                String url = "jdbc:mysql://localhost:3306/mydatabase?serverTimezone=UTC";
-                String uName ="root";
-                String pwd = "rootpassword";
-                Connection conn;
-                try {
-                    Class.forName(Driver).newInstance();
-                    conn = DriverManager.getConnection(url, uName, pwd);
-                    Statement stmt = conn.createStatement();
-                    String sql="";
+                entityManager.close();
 
-                    //Finding out which element was updated
-                    boolean tmp=false;
-                    if(!drivers.getFirstName().equals(createTextFields.getDriverDataFirstName().getText())){
-                        sql = "UPDATE drivers set firstName='"+createTextFields.getDriverDataFirstName().getText()+"'"
-                                +" where pesel='"+drivers.getPesel()+"'";
-                        tmp=true;
-                    }
-                    else if(!drivers.getName().equals(createTextFields.getDriverDataName().getText())){
-                        sql = "UPDATE drivers set name='"+createTextFields.getDriverDataName().getText()+"'"
-                                +" where pesel='"+drivers.getPesel()+"'";
-                        tmp=true;
-                    }
-                    else if(!drivers.getStreet().equals(createTextFields.getDriverDataStreet().getText())){
-                        sql = "UPDATE drivers set street='"+createTextFields.getDriverDataStreet().getText()+"'"
-                                +" where pesel='"+drivers.getPesel()+"'";
-                        tmp=true;
-                    }
-                    else if(!drivers.getHouseNumber().equals(createTextFields.getDriverDataHouseNumber().getText())){
-                        sql = "UPDATE drivers set houseNumber='"+createTextFields.getDriverDataHouseNumber().getText()+"'"
-                                +" where pesel='"+drivers.getPesel()+"'";
-                        tmp=true;
-                    }
-                    else if(!drivers.getPostcode().equals(createTextFields.getDriverDataPostCode().getText())){
-                        sql = "UPDATE drivers set postcode='"+createTextFields.getDriverDataPostCode().getText()+"'"
-                                +" where pesel='"+drivers.getPesel()+"'";
-                        tmp=true;
-                    }
-                    else if(!drivers.getLocation().equals(createTextFields.getDriverDataLocation().getText())){
-                        sql = "UPDATE drivers set location='"+createTextFields.getDriverDataFirstName().getText()+"'"
-                                +" where pesel='"+drivers.getPesel()+"'";
-                        tmp=true;
-                    }
-                    if(tmp){
-                        stmt.executeUpdate(sql);
-                    }
-                }catch(Exception e1){
-                    e1.printStackTrace();
+                if(!drivers.getFirstName().equals(createTextFields.getDriverDataFirstName().getText())){
+                    sqlQueries.add("UPDATE drivers set firstName='"+createTextFields.getDriverDataFirstName().getText()+"'"
+                            +" where pesel='"+drivers.getPesel()+"'");
+                    tmp=true;
                 }
-                finally{
-                    createTextFields.getDriverGivenPesel().setText("");
+                else if(!drivers.getName().equals(createTextFields.getDriverDataName().getText())){
+                    sqlQueries.add("UPDATE drivers set name='"+createTextFields.getDriverDataName().getText()+"'"
+                            +" where pesel='"+drivers.getPesel()+"'");
+                    tmp=true;
                 }
-            }
-            catch(Exception e1){
+                else if(!drivers.getStreet().equals(createTextFields.getDriverDataStreet().getText())){
+                    sqlQueries.add("UPDATE drivers set street='"+createTextFields.getDriverDataStreet().getText()+"'"
+                            +" where pesel='"+drivers.getPesel()+"'");
+                    tmp=true;
+                }
+                else if(!drivers.getHouseNumber().equals(createTextFields.getDriverDataHouseNumber().getText())){
+                    sqlQueries.add("UPDATE drivers set houseNumber='"+createTextFields.getDriverDataHouseNumber().getText()+"'"
+                            +" where pesel='"+drivers.getPesel()+"'");
+                    tmp=true;
+                }
+                else if(!drivers.getPostcode().equals(createTextFields.getDriverDataPostCode().getText())){
+                    sqlQueries.add("UPDATE drivers set postcode='"+createTextFields.getDriverDataPostCode().getText()+"'"
+                            +" where pesel='"+drivers.getPesel()+"'");
+                    tmp=true;
+                }
+                else if(!drivers.getLocation().equals(createTextFields.getDriverDataLocation().getText())){
+                    sqlQueries.add("UPDATE drivers set location='"+createTextFields.getDriverDataFirstName().getText()+"'"
+                            +" where pesel='"+drivers.getPesel()+"'");
+                    tmp=true;
+                }
+                if(tmp){
+                    readFromDatabase=new ReadFromDatabase(createTextFields,varUsedToReadDB,entityManagerFactory,currentThreadInDB,progressIndicatorClass);
+                    readFromDatabase.setChangeDriverDataConfirmation(true);
+                    for(String string:sqlQueries){
+                        readFromDatabase.getSqlUpdateQueries().add(string);
+                    }
+                    createThread=true;
+                    globalVariables.setThreadStartedReading(1);
+                }
+            }catch(Exception e1){
+                entityManager.close();
                 e1.printStackTrace();
+                //wypisz blad global
             }
         });
     }
@@ -355,6 +351,7 @@ public class ButtonsController extends Thread{
                 readFromDatabase=new ReadFromDatabase(createTextFields,varUsedToReadDB,entityManagerFactory,currentThreadInDB,progressIndicatorClass);
                 readFromDatabase.setDriverLicenceDuplicate(true);
                 createThread=true;
+                globalVariables.setThreadStartedReading(1);
             }
             else{
                 texts.setnotFilledFields(APP_W/2.0-texts.getnotFilledFields().getLayoutBounds().getWidth()/2.0
@@ -371,6 +368,7 @@ public class ButtonsController extends Thread{
                 readFromDatabase=new ReadFromDatabase(createTextFields,varUsedToReadDB,entityManagerFactory,currentThreadInDB,progressIndicatorClass);
                 readFromDatabase.setDriverLicenceNew(true);
                 createThread=true;
+                globalVariables.setThreadStartedReading(1);
             }
             else{
                 texts.setnotFilledFields(APP_W/2.0-texts.getnotFilledFields().getLayoutBounds().getWidth()/2.0
@@ -387,6 +385,7 @@ public class ButtonsController extends Thread{
                 readFromDatabase=new ReadFromDatabase(createTextFields,varUsedToReadDB,entityManagerFactory,currentThreadInDB,progressIndicatorClass);
                 readFromDatabase.setCarIdentityCardChange(true);
                 createThread=true;
+                globalVariables.setThreadStartedReading(1);
             }
             else{
                 texts.setnotFilledFields(APP_W/2.0-texts.getnotFilledFields().getLayoutBounds().getWidth()/2.0

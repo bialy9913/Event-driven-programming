@@ -2,6 +2,7 @@ package sample;
 
 import javafx.scene.control.ProgressIndicator;
 
+
 public class ProgressIndicatorClass {
     private ProgressIndicator progressIndicator;
     public ProgressIndicatorClass(){
@@ -9,7 +10,7 @@ public class ProgressIndicatorClass {
         progressIndicator.setVisible(false);
         progressIndicator.setTranslateX(600);
         progressIndicator.setTranslateY(600);
-        System.out.println("halo halo siema siema");
+        progressIndicator.setStyle(" -fx-progress-color: red;");
     }
     public ProgressIndicator getProgressIndicator() {
         return progressIndicator;

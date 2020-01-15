@@ -15,6 +15,7 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class ReadFromDatabase extends Thread{
     private CreateTextFields createTextFields;
@@ -40,6 +41,9 @@ public class ReadFromDatabase extends Thread{
     private boolean driverLicenceDuplicate=false;
 
     private boolean carIdentityCardChange=false;
+
+    private boolean changeDriverDataConfirmation=false;
+    private ArrayList<String > sqlUpdateQueries=new ArrayList<>();
 
     public ReadFromDatabase(CreateTextFields createTextFields
             , VarUsedToReadDB varUsedToReadDB
@@ -74,7 +78,7 @@ public class ReadFromDatabase extends Thread{
                     running=false;
                     //currentThreadInDB.setReadFromDatabase(null);
                 }
-                while(createEmployeeConfirm){
+                if(createEmployeeConfirm){
                     handleCreateEmployeeConfirm();
                     try {
                         Thread.sleep(10000);
@@ -83,7 +87,6 @@ public class ReadFromDatabase extends Thread{
                     }
                     createEmployeeConfirm=false;
                     running=false;
-                    //progressIndicatorClass.getProgressIndicator().setProgress(progressIndicatorClass.getProgressIndicator().getProgress()+0.000001);
                 }
                 if(createDriver){
                     handleCreateDriver();
@@ -104,6 +107,11 @@ public class ReadFromDatabase extends Thread{
                 if(carIdentityCardChange){
                     handleCarIdentityCardChange();
                     carIdentityCardChange=false;
+                    running=false;
+                }
+                if(changeDriverDataConfirmation){
+                    handleChangeDriverDataConfirmation();
+                    changeDriverDataConfirmation=false;
                     running=false;
                 }
                 if(!running){
@@ -370,5 +378,34 @@ public class ReadFromDatabase extends Thread{
     }
     public void setCarIdentityCardChange(boolean carIdentityCardChange) {
         this.carIdentityCardChange = carIdentityCardChange;
+    }
+    public ArrayList<String> getSqlUpdateQueries() {
+        return sqlUpdateQueries;
+    }
+    public void handleChangeDriverDataConfirmation(){
+
+        String Driver = "com.mysql.jdbc.Driver";
+        String url = "jdbc:mysql://localhost:3306/mydatabase?serverTimezone=UTC";
+        String uName ="root";
+        String pwd = "rootpassword";
+        Connection conn;
+
+        try {
+            Class.forName(Driver).newInstance();
+            conn = DriverManager.getConnection(url, uName, pwd);
+            Statement stmt = conn.createStatement();
+
+            for(String string:sqlUpdateQueries){
+                stmt.executeUpdate(string);
+            }
+        }catch(Exception e1){
+            e1.printStackTrace();
+        }
+        finally{
+            createTextFields.getDriverGivenPesel().setText("");
+        }
+    }
+    public void setChangeDriverDataConfirmation(boolean changeDriverDataConfirmation) {
+        this.changeDriverDataConfirmation = changeDriverDataConfirmation;
     }
 }
