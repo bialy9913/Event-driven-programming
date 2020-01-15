@@ -9,6 +9,7 @@ public class ProgressIndicatorClass {
         progressIndicator.setVisible(false);
         progressIndicator.setTranslateX(600);
         progressIndicator.setTranslateY(600);
+        System.out.println("halo halo siema siema");
     }
     public ProgressIndicator getProgressIndicator() {
         return progressIndicator;
