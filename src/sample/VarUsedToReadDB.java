@@ -1,5 +1,6 @@
 package sample;
 
+import database.ReadFromDatabase;
 import entities.Users;
 
 public class VarUsedToReadDB {
@@ -21,8 +22,6 @@ public class VarUsedToReadDB {
     private int driverLicenceDuplicateDriverExists=0;
 
     private int carIdentityCardChangeCardExists=0;
-
-
 
     private int threadStartedReading=0;
 

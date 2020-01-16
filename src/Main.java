@@ -33,7 +33,6 @@ public class Main extends Application{
     private GlobalVariables globalVariables =new GlobalVariables();
     private VarUsedToReadDB varUsedToReadDB=new VarUsedToReadDB();
     private Controller controller=new Controller(globalVariables,varUsedToReadDB);
-    private CurrentThreadInDB currentThreadInDB =new CurrentThreadInDB();
     private CreateTextAreas createTextAreas=new CreateTextAreas();
     private CreateVboxes createVboxes=new CreateVboxes(APP_W,APP_H,createTextFields,createButtons,createTextAreas);
 
@@ -42,7 +41,7 @@ public class Main extends Application{
     private ProgressIndicatorClass progressIndicatorClass=new ProgressIndicatorClass();
     private ButtonsController buttonsController =new ButtonsController(APP_W,APP_H,createButtons,createTextFields,texts
                                                                             , globalVariables,createVboxes,createHboxes,entityManagerFactory
-                                                                            ,createTextAreas,varUsedToReadDB, currentThreadInDB
+                                                                            ,createTextAreas,varUsedToReadDB
                                                                             , progressIndicatorClass);
     private MenuItemsController menuItemsController =new MenuItemsController(createMenuItems,createTextFields,createVboxes, globalVariables
                                                                                   ,createButtons);

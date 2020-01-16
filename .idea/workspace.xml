@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Initial commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Prz/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Prz/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Prz/controlers/ButtonsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Prz/controlers/ButtonsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Prz/controlers/MenuItemsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Prz/controlers/MenuItemsController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Prz/database/ReadFromDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Prz/database/ReadFromDatabase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Prz/sample/CurrentThreadInDB.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Prz/sample/GlobalVariables.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Prz/sample/GlobalVariables.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Prz/sample/ProgressIndicatorClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Prz/sample/ProgressIndicatorClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Prz/sample/VarUsedToReadDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Prz/sample/VarUsedToReadDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controlers/ButtonsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controlers/ButtonsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controlers/MenuItemsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controlers/MenuItemsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/ReadFromDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/ReadFromDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/CurrentThreadInDB.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/GlobalVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/GlobalVariables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ProgressIndicatorClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/ProgressIndicatorClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/VarUsedToReadDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/VarUsedToReadDB.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,8 +77,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="124">
+              <caret line="34" column="82" selection-start-line="34" selection-start-column="82" selection-end-line="34" selection-end-column="82" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -83,63 +87,14 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/controlers/ButtonsController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1343">
-              <caret line="79" column="9" lean-forward="true" selection-start-line="79" selection-start-column="9" selection-end-line="79" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#22776#22777#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/database/ReadFromDatabase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1">
-              <caret line="114" column="34" selection-start-line="114" selection-start-column="34" selection-end-line="114" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#15072#15073#0" expanded="true" />
-                <element signature="e#15111#15112#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controlers/MenuItemsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="33" column="47" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
+            <state relative-caret-position="114">
+              <caret line="42" column="63" lean-forward="true" selection-start-line="42" selection-start-column="63" selection-end-line="42" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#909#910#0" expanded="true" />
                 <element signature="e#965#966#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/VarUsedToReadDB.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="98" column="5" selection-start-line="98" selection-start-column="5" selection-end-line="98" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/GlobalVariables.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
-              <folding>
-                <element signature="e#7541#7542#0" expanded="true" />
-                <element signature="e#7604#7605#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -156,8 +111,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>not_filled_login_credentials</find>
-      <find>setIncorrect_login_credentials</find>
       <find>notFilledLoginCredentials</find>
       <find>setNot_filled_login_credentials</find>
       <find>setNotFilledFields</find>
@@ -186,6 +139,8 @@
       <find>globalVariables</find>
       <find>varUsedToReadDB</find>
       <find>ReadFromDatabase</find>
+      <find>public</find>
+      <find>createThread</find>
     </findStrings>
     <replaceStrings>
       <replace>Label</replace>
@@ -217,6 +172,7 @@
       <replace>createTextFields</replace>
       <replace>WHITE</replace>
       <replace>varUsedToReadDB</replace>
+      <replace>private</replace>
     </replaceStrings>
   </component>
   <component name="FindManager">
@@ -272,13 +228,13 @@
         <option value="$PROJECT_DIR$/src/sample/CreateMenuButtons.java" />
         <option value="$PROJECT_DIR$/src/sample/ProgressIndicator.java" />
         <option value="$PROJECT_DIR$/src/controlers/Controller.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/sample/ProgressIndicatorClass.java" />
         <option value="$PROJECT_DIR$/src/sample/GlobalVariables.java" />
         <option value="$PROJECT_DIR$/src/sample/VarUsedToReadDB.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/database/ReadFromDatabase.java" />
-        <option value="$PROJECT_DIR$/src/controlers/MenuItemsController.java" />
         <option value="$PROJECT_DIR$/src/controlers/ButtonsController.java" />
+        <option value="$PROJECT_DIR$/src/controlers/MenuItemsController.java" />
       </list>
     </option>
   </component>
@@ -304,6 +260,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -345,7 +302,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -357,7 +313,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1579129298612" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1579129402865" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../wspol/ProjectWl" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -516,7 +472,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579122977105</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Initial commit">
+      <created>1579129334214</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1579129334214</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -535,7 +498,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.2701613" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.27419356" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -775,16 +738,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/CreateHboxes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -793,13 +746,6 @@
             <element signature="e#270#271#0" expanded="true" />
             <element signature="e#306#307#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/CreateMenuItems.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-103">
-          <caret line="16" column="61" lean-forward="true" selection-start-line="16" selection-start-column="61" selection-end-line="16" selection-end-column="61" />
         </state>
       </provider>
     </entry>
@@ -822,11 +768,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/GlobalVariables.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+        <state relative-caret-position="288">
+          <caret line="223" column="5" selection-start-line="223" selection-start-column="5" selection-end-line="223" selection-end-column="5" />
           <folding>
-            <element signature="e#7541#7542#0" expanded="true" />
-            <element signature="e#7604#7605#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#8020#8021#0" expanded="true" />
+            <element signature="e#8063#8064#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -834,41 +781,62 @@
     <entry file="file://$PROJECT_DIR$/src/sample/VarUsedToReadDB.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
-          <caret line="98" column="5" selection-start-line="98" selection-start-column="5" selection-end-line="98" selection-end-column="5" />
+          <caret line="97" column="5" selection-start-line="97" selection-start-column="5" selection-end-line="97" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/database/ReadFromDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="114" column="34" selection-start-line="114" selection-start-column="34" selection-end-line="114" selection-end-column="34" />
+        <state relative-caret-position="-115">
+          <caret line="66" column="33" lean-forward="true" selection-start-line="66" selection-start-column="33" selection-end-line="66" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#15072#15073#0" expanded="true" />
-            <element signature="e#15111#15112#0" expanded="true" />
+            <element signature="e#1900#1901#0" expanded="true" />
+            <element signature="e#1938#1939#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/CreateMenuItems.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="16" column="61" lean-forward="true" selection-start-line="16" selection-start-column="61" selection-end-line="16" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controlers/ButtonsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="219" column="34" lean-forward="true" selection-start-line="219" selection-start-column="34" selection-end-line="219" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#22720#22721#0" expanded="true" />
+            <element signature="e#22776#22777#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="34" column="82" selection-start-line="34" selection-start-column="82" selection-end-line="34" selection-end-column="82" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controlers/MenuItemsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="33" column="47" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
+        <state relative-caret-position="114">
+          <caret line="42" column="63" lean-forward="true" selection-start-line="42" selection-start-column="63" selection-end-line="42" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#909#910#0" expanded="true" />
             <element signature="e#965#966#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controlers/ButtonsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1343">
-          <caret line="79" column="9" lean-forward="true" selection-start-line="79" selection-start-column="9" selection-end-line="79" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#22776#22777#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -4,7 +4,6 @@ import entities.CarIdentityCard;
 import entities.DriverLicence;
 import entities.Drivers;
 import entities.Users;
-import javafx.scene.control.ProgressIndicator;
 import sample.*;
 
 import javax.persistence.EntityManager;
@@ -18,6 +17,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class ReadFromDatabase extends Thread{
+    private volatile boolean running=true;
+
     private CreateTextFields createTextFields;
     private VarUsedToReadDB varUsedToReadDB;
     private EntityManagerFactory entityManagerFactory;
@@ -47,7 +48,7 @@ public class ReadFromDatabase extends Thread{
 
     public ReadFromDatabase(CreateTextFields createTextFields
             , VarUsedToReadDB varUsedToReadDB
-                            ,EntityManagerFactory entityManagerFactory,CurrentThreadInDB currentThreadInDB
+                            ,EntityManagerFactory entityManagerFactory
                             , ProgressIndicatorClass progressIndicatorClass) {
         this.createTextFields = createTextFields;
         this.varUsedToReadDB=varUsedToReadDB;
@@ -55,9 +56,12 @@ public class ReadFromDatabase extends Thread{
         this.progressIndicatorClass=progressIndicatorClass;
     }
 
+    public void setRunning(boolean running) {
+        this.running = running;
+    }
+
     @Override
     public void run() {
-        boolean running=true;
         while(running){
             synchronized (varUsedToReadDB){
                 if(getLogInUser){
@@ -76,15 +80,12 @@ public class ReadFromDatabase extends Thread{
                     handleCarRegistrationDeregister();
                     deregisterCar=false;
                     running=false;
-                    //currentThreadInDB.setReadFromDatabase(null);
                 }
                 if(createEmployeeConfirm){
-                    handleCreateEmployeeConfirm();
-                    try {
-                        Thread.sleep(10000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                    while(running){
+
                     }
+                    handleCreateEmployeeConfirm();
                     createEmployeeConfirm=false;
                     running=false;
                 }

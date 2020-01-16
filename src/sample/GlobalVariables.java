@@ -1,5 +1,6 @@
 package sample;
 
+import database.ReadFromDatabase;
 import entities.Users;
 
 public class GlobalVariables {
@@ -42,6 +43,9 @@ public class GlobalVariables {
     private int carIdentityCardChangeCardExists=0;
 
     private int changeDriverDataConfirmationDriverExists=0;
+
+    private ReadFromDatabase currentReadingThread;
+    private boolean readingThreadIsRunning=false;
 
     public GlobalVariables(){
 
@@ -211,5 +215,11 @@ public class GlobalVariables {
     }
     public void setChangeDriverDataConfirmationDriverExists(int changeDriverDataConfirmationDriverExists) {
         this.changeDriverDataConfirmationDriverExists = changeDriverDataConfirmationDriverExists;
+    }
+    public ReadFromDatabase getCurrentReadingThread() {
+        return currentReadingThread;
+    }
+    public void setCurrentReadingThread(ReadFromDatabase currentReadingThread) {
+        this.currentReadingThread = currentReadingThread;
     }
 }

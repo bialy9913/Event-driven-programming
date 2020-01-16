@@ -27,7 +27,6 @@ public class ButtonsController extends Thread{
     private CreateTextAreas createTextAreas;
     private HideOtherObjects hideOtherObjects;
     private VarUsedToReadDB varUsedToReadDB;
-    private CurrentThreadInDB currentThreadInDB;
     private ReadFromDatabase readFromDatabase;
     private boolean createThread=false;
     private ProgressIndicatorClass progressIndicatorClass;
@@ -38,7 +37,6 @@ public class ButtonsController extends Thread{
                                , CreateHboxes createHboxes, EntityManagerFactory entityManagerFactory
                                , CreateTextAreas createTextAreas
                                , VarUsedToReadDB varUsedToReadDB
-                               , CurrentThreadInDB currentThreadInDB
                                , ProgressIndicatorClass progressIndicatorClass)
     {
         this.APP_W=APP_W;
@@ -52,7 +50,6 @@ public class ButtonsController extends Thread{
         this.entityManagerFactory=entityManagerFactory;
         this.createTextAreas=createTextAreas;
         this.varUsedToReadDB=varUsedToReadDB;
-        this.currentThreadInDB = currentThreadInDB;
         this.progressIndicatorClass=progressIndicatorClass;
     }
 
@@ -84,11 +81,12 @@ public class ButtonsController extends Thread{
         createButtons.getLogIn().setOnMouseClicked(e -> {
             if(!createTextFields.gettextFieldLogin().getText().isEmpty()
                     && !createTextFields.getPasswordField().getText().isEmpty()){
-                readFromDatabase=new ReadFromDatabase(createTextFields,varUsedToReadDB,entityManagerFactory,currentThreadInDB,progressIndicatorClass);
+                readFromDatabase=new ReadFromDatabase(createTextFields,varUsedToReadDB,entityManagerFactory,progressIndicatorClass);
                 //currentThreadInDB.setReadFromDatabase(readFromDatabase);
                 readFromDatabase.setGetLogInUser(true);
                 createThread=true;
                 globalVariables.setThreadStartedReading(1);
+                globalVariables.setCurrentReadingThread(readFromDatabase);
             }
             else{
                 texts.setnotFilledFields(APP_W/2.0-texts.getnotFilledFields().getLayoutBounds().getWidth()/2.0
@@ -106,11 +104,11 @@ public class ButtonsController extends Thread{
             createTextFields.getPasswordField().setVisible(true);
             createButtons.getLogIn().setVisible(true);
 
-            if(currentThreadInDB.getReadFromDatabase()!=null){
-                currentThreadInDB.getReadFromDatabase().stop();
-                currentThreadInDB.setReadFromDatabase(null);
+            if(globalVariables.getThreadStartedReading()==1){
+                globalVariables.setThreadStartedReading(2);
+                globalVariables.getCurrentReadingThread().setRunning(false);
+                globalVariables.setCurrentReadingThread(null);
             }
-
         });
     }
     public void clickOnCarRegistration(){
@@ -129,12 +127,12 @@ public class ButtonsController extends Thread{
                 carIdentityCard.setDateOfRelease(Date.valueOf(LocalDate.now().toString()));
                 carIdentityCard.setValidate("Y");
 
-                readFromDatabase=new ReadFromDatabase(createTextFields,varUsedToReadDB,entityManagerFactory,currentThreadInDB,progressIndicatorClass);
-                currentThreadInDB.setReadFromDatabase(readFromDatabase);
+                readFromDatabase=new ReadFromDatabase(createTextFields,varUsedToReadDB,entityManagerFactory,progressIndicatorClass);
                 readFromDatabase.setCarIdentityCard(carIdentityCard);
                 readFromDatabase.setCarRegistration(true);
                 createThread=true;
                 globalVariables.setThreadStartedReading(1);
+                globalVariables.setCurrentReadingThread(readFromDatabase);
             }
             else{
                 texts.setnotFilledFields(createVboxes.getCarRegistration().getTranslateX()+createVboxes.getCarRegistration().getWidth()/2.0-texts.getnotFilledFields().getLayoutBounds().getWidth()/2.0
@@ -148,11 +146,11 @@ public class ButtonsController extends Thread{
     public void clickOnCarRegistrationDeregister(){
         createButtons.getCarRegistrationDeregister().setOnAction(e->{
             if(!createTextFields.getCarRegistrationDeregisterVinNumber().getText().equals("")){
-                readFromDatabase=new ReadFromDatabase(createTextFields,varUsedToReadDB,entityManagerFactory,currentThreadInDB,progressIndicatorClass);
-                currentThreadInDB.setReadFromDatabase(readFromDatabase);
+                readFromDatabase=new ReadFromDatabase(createTextFields,varUsedToReadDB,entityManagerFactory,progressIndicatorClass);
                 readFromDatabase.setDeregisterCar(true);
                 createThread=true;
                 globalVariables.setThreadStartedReading(1);
+                globalVariables.setCurrentReadingThread(readFromDatabase);
             }
             else{
                 texts.setnotFilledFields(createVboxes.getCarRegistration().getTranslateX()+createVboxes.getCarRegistration().getWidth()/2.0-texts.getnotFilledFields().getLayoutBounds().getWidth()/2.0
@@ -167,6 +165,11 @@ public class ButtonsController extends Thread{
     public void clickOnCreateEmployee(){
         createButtons.getCreateEmployee().setOnMouseClicked(e->{
             globalVariables.setCreateEmployeeWasClicked(true);
+            if(globalVariables.getThreadStartedReading()==1){
+                globalVariables.setThreadStartedReading(2);
+                globalVariables.getCurrentReadingThread().setRunning(false);
+                globalVariables.setCurrentReadingThread(null);
+            }
         });
     }
     //Handling click on button which is visible after clicking above button
@@ -181,12 +184,12 @@ public class ButtonsController extends Thread{
                 users.setLogin(createTextFields.getCreateEmployeeLogin().getText());
                 users.setPassword(createTextFields.getCreateEmployeePassword().getText());
 
-                readFromDatabase=new ReadFromDatabase(createTextFields,varUsedToReadDB,entityManagerFactory,currentThreadInDB,progressIndicatorClass);
-                currentThreadInDB.setReadFromDatabase(readFromDatabase);
+                readFromDatabase=new ReadFromDatabase(createTextFields,varUsedToReadDB,entityManagerFactory,progressIndicatorClass);
                 readFromDatabase.setUsers(users);
                 readFromDatabase.setCreateEmployeeConfirm(true);
                 createThread=true;
                 globalVariables.setThreadStartedReading(1);
+                globalVariables.setCurrentReadingThread(readFromDatabase);
             }
             else{
                 texts.setnotFilledFields(APP_W/2.0-texts.getnotFilledFields().getLayoutBounds().getWidth()/2.0
@@ -211,11 +214,12 @@ public class ButtonsController extends Thread{
                 drivers.setPostcode(createTextFields.getDriverPostCode().getText());
                 drivers.setPesel(createTextFields.getDriverPesel().getText());
 
-                readFromDatabase=new ReadFromDatabase(createTextFields,varUsedToReadDB,entityManagerFactory,currentThreadInDB,progressIndicatorClass);
+                readFromDatabase=new ReadFromDatabase(createTextFields,varUsedToReadDB,entityManagerFactory,progressIndicatorClass);
                 readFromDatabase.setDrivers(drivers);
                 readFromDatabase.setCreateDriver(true);
                 createThread=true;
                 globalVariables.setThreadStartedReading(1);
+                globalVariables.setCurrentReadingThread(readFromDatabase);
             }
             else{
                 texts.setnotFilledFields(APP_W/2.0-texts.getnotFilledFields().getLayoutBounds().getWidth()/2.0
@@ -330,13 +334,14 @@ public class ButtonsController extends Thread{
                     tmp=true;
                 }
                 if(tmp){
-                    readFromDatabase=new ReadFromDatabase(createTextFields,varUsedToReadDB,entityManagerFactory,currentThreadInDB,progressIndicatorClass);
+                    readFromDatabase=new ReadFromDatabase(createTextFields,varUsedToReadDB,entityManagerFactory,progressIndicatorClass);
                     readFromDatabase.setChangeDriverDataConfirmation(true);
                     for(String string:sqlQueries){
                         readFromDatabase.getSqlUpdateQueries().add(string);
                     }
                     createThread=true;
                     globalVariables.setThreadStartedReading(1);
+                    globalVariables.setCurrentReadingThread(readFromDatabase);
                 }
             }catch(Exception e1){
                 entityManager.close();
@@ -348,10 +353,11 @@ public class ButtonsController extends Thread{
     public void clickOnDriverLicenceDuplicate(){
         createButtons.getDriverLicenceDuplicate().setOnAction(e->{
             if(!createTextFields.getDriverGivenPesel().getText().equals("")){
-                readFromDatabase=new ReadFromDatabase(createTextFields,varUsedToReadDB,entityManagerFactory,currentThreadInDB,progressIndicatorClass);
+                readFromDatabase=new ReadFromDatabase(createTextFields,varUsedToReadDB,entityManagerFactory,progressIndicatorClass);
                 readFromDatabase.setDriverLicenceDuplicate(true);
                 createThread=true;
                 globalVariables.setThreadStartedReading(1);
+                globalVariables.setCurrentReadingThread(readFromDatabase);
             }
             else{
                 texts.setnotFilledFields(APP_W/2.0-texts.getnotFilledFields().getLayoutBounds().getWidth()/2.0
@@ -365,10 +371,11 @@ public class ButtonsController extends Thread{
     public void clickOnDriverLicenceNew(){
         createButtons.getDriverLicenceCreateNew().setOnAction(e->{
             if(!createTextFields.getDriverGivenPesel().getText().equals("")){
-                readFromDatabase=new ReadFromDatabase(createTextFields,varUsedToReadDB,entityManagerFactory,currentThreadInDB,progressIndicatorClass);
+                readFromDatabase=new ReadFromDatabase(createTextFields,varUsedToReadDB,entityManagerFactory,progressIndicatorClass);
                 readFromDatabase.setDriverLicenceNew(true);
                 createThread=true;
                 globalVariables.setThreadStartedReading(1);
+                globalVariables.setCurrentReadingThread(readFromDatabase);
             }
             else{
                 texts.setnotFilledFields(APP_W/2.0-texts.getnotFilledFields().getLayoutBounds().getWidth()/2.0
@@ -382,10 +389,11 @@ public class ButtonsController extends Thread{
     public void clickOnCarIdentityCardChange(){
         createButtons.getCarIdentityCardChange().setOnAction(e->{
             if(!createTextFields.getCarIdentityCardVinNumber().getText().equals("")){
-                readFromDatabase=new ReadFromDatabase(createTextFields,varUsedToReadDB,entityManagerFactory,currentThreadInDB,progressIndicatorClass);
+                readFromDatabase=new ReadFromDatabase(createTextFields,varUsedToReadDB,entityManagerFactory,progressIndicatorClass);
                 readFromDatabase.setCarIdentityCardChange(true);
                 createThread=true;
                 globalVariables.setThreadStartedReading(1);
+                globalVariables.setCurrentReadingThread(readFromDatabase);
             }
             else{
                 texts.setnotFilledFields(APP_W/2.0-texts.getnotFilledFields().getLayoutBounds().getWidth()/2.0

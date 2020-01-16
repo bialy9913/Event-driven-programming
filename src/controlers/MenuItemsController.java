@@ -32,6 +32,7 @@ public class MenuItemsController extends Thread{
                 clickOnDriverLicenceDuplicate();
                 clickOnCarIdentityCardChange();
                 clickOnDriverChangeDriverData();
+                clickOnDriverCheckDriver();
             }
         }
     }
@@ -40,6 +41,11 @@ public class MenuItemsController extends Thread{
         createMenuItems.getRegisterCarPoland().setOnAction(e ->{
             hideOtherObjects.hide(createVboxes.getCarRegistration(),0);
             createVboxes.getCarRegistration().setVisible(true);
+            if(globalVariables.getThreadStartedReading()==1){
+                globalVariables.setThreadStartedReading(2);
+                globalVariables.getCurrentReadingThread().setRunning(false);
+                globalVariables.setCurrentReadingThread(null);
+            }
         });
 
     }
@@ -51,6 +57,11 @@ public class MenuItemsController extends Thread{
             createButtons.getCarRegistrationDeregister().setTranslateY(createTextFields.getCarRegistrationDeregisterVinNumber().getTranslateY()
                                                                        +createTextFields.getCarRegistrationDeregisterVinNumber().getHeight());
             createButtons.getCarRegistrationDeregister().setVisible(true);
+            if(globalVariables.getThreadStartedReading()==1){
+                globalVariables.setThreadStartedReading(2);
+                globalVariables.getCurrentReadingThread().setRunning(false);
+                globalVariables.setCurrentReadingThread(null);
+            }
         });
     }
     private void clickOnCarIdentityCardChange(){
@@ -61,6 +72,11 @@ public class MenuItemsController extends Thread{
                     +createTextFields.getCarIdentityCardVinNumber().getLayoutBounds().getHeight());
             createTextFields.getCarIdentityCardVinNumber().setVisible(true);
             createButtons.getCarIdentityCardChange().setVisible(true);
+            if(globalVariables.getThreadStartedReading()==1){
+                globalVariables.setThreadStartedReading(2);
+                globalVariables.getCurrentReadingThread().setRunning(false);
+                globalVariables.setCurrentReadingThread(null);
+            }
         });
     }
     //Driver--------------------------------------------------------------------------
@@ -70,9 +86,14 @@ public class MenuItemsController extends Thread{
             createVboxes.getCreateDriver().setVisible(true);
             globalVariables.setDriverChangeDataWasClicked(false);
             globalVariables.setDriverCheckWasClicked(false);
+            if(globalVariables.getThreadStartedReading()==1){
+                globalVariables.setThreadStartedReading(2);
+                globalVariables.getCurrentReadingThread().setRunning(false);
+                globalVariables.setCurrentReadingThread(null);
+            }
         });
     }
-    private void clickOnDriverCheckDriver(HideOtherObjects hideOtherObjects){
+    private void clickOnDriverCheckDriver(){
         createMenuItems.getDriverCheckDriver().setOnAction(e->{
             hideOtherObjects.hide(new VBox(),1);
             createButtons.getDriverCheckDriver().setTranslateX(createTextFields.getDriverGivenPesel().getTranslateX());
@@ -82,6 +103,11 @@ public class MenuItemsController extends Thread{
             createButtons.getDriverCheckDriver().setVisible(true);
             globalVariables.setDriverChangeDataWasClicked(false);
             globalVariables.setDriverCheckWasClicked(true);
+            if(globalVariables.getThreadStartedReading()==1){
+                globalVariables.setThreadStartedReading(2);
+                globalVariables.getCurrentReadingThread().setRunning(false);
+                globalVariables.setCurrentReadingThread(null);
+            }
         });
     }
     private void clickOnDriverChangeDriverData(){
@@ -94,6 +120,11 @@ public class MenuItemsController extends Thread{
             createButtons.getDriverCheckDriver().setVisible(true);
             globalVariables.setDriverChangeDataWasClicked(true);
             globalVariables.setDriverCheckWasClicked(false);
+            if(globalVariables.getThreadStartedReading()==1){
+                globalVariables.setThreadStartedReading(2);
+                globalVariables.getCurrentReadingThread().setRunning(false);
+                globalVariables.setCurrentReadingThread(null);
+            }
         });
     }
     //--------------------------------------------------------------------------------
@@ -105,6 +136,11 @@ public class MenuItemsController extends Thread{
                     +createTextFields.getDriverGivenPesel().getLayoutBounds().getHeight());
             createTextFields.getDriverGivenPesel().setVisible(true);
             createButtons.getDriverLicenceDuplicate().setVisible(true);
+            if(globalVariables.getThreadStartedReading()==1){
+                globalVariables.setThreadStartedReading(2);
+                globalVariables.getCurrentReadingThread().setRunning(false);
+                globalVariables.setCurrentReadingThread(null);
+            }
         });
     }
     private void clickOnDriverLicenceNew(){
@@ -115,6 +151,11 @@ public class MenuItemsController extends Thread{
                     +createTextFields.getDriverGivenPesel().getLayoutBounds().getHeight());
             createTextFields.getDriverGivenPesel().setVisible(true);
             createButtons.getDriverLicenceCreateNew().setVisible(true);
+            if(globalVariables.getThreadStartedReading()==1){
+                globalVariables.setThreadStartedReading(2);
+                globalVariables.getCurrentReadingThread().setRunning(false);
+                globalVariables.setCurrentReadingThread(null);
+            }
         });
     }
 }
