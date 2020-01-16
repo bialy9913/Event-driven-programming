@@ -1,4 +1,4 @@
-package sample;
+package synchronizedObjects;
 
 import database.ReadFromDatabase;
 import entities.Users;

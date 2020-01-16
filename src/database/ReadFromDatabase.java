@@ -1,10 +1,12 @@
 package database;
 
+import createObjects.CreateTextFields;
+import createObjects.ProgressIndicatorClass;
 import entities.CarIdentityCard;
 import entities.DriverLicence;
 import entities.Drivers;
 import entities.Users;
-import sample.*;
+import synchronizedObjects.VarUsedToReadDB;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

@@ -1,4 +1,4 @@
-package sample;
+package createObjects;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;

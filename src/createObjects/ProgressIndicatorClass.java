@@ -1,4 +1,4 @@
-package sample;
+package createObjects;
 
 import javafx.scene.control.ProgressIndicator;
 

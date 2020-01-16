@@ -1,7 +1,7 @@
 package controlers;
 
-import sample.GlobalVariables;
-import sample.VarUsedToReadDB;
+import synchronizedObjects.GlobalVariables;
+import synchronizedObjects.VarUsedToReadDB;
 
 public class Controller extends Thread{
     private GlobalVariables globalVariables;

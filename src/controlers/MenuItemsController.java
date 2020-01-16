@@ -1,7 +1,7 @@
 package controlers;
 
-import javafx.scene.layout.VBox;
-import sample.*;
+import createObjects.*;
+import synchronizedObjects.GlobalVariables;
 
 public class MenuItemsController extends Thread{
     private CreateMenuItems createMenuItems;

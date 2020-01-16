@@ -1,6 +1,7 @@
 import controlers.ButtonsController;
 import controlers.Controller;
 import controlers.MenuItemsController;
+import createObjects.*;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -13,7 +14,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import sample.*;
+import synchronizedObjects.GlobalVariables;
+import synchronizedObjects.VarUsedToReadDB;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
