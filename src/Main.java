@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -298,6 +299,82 @@ public class Main extends Application{
                         progressIndicatorClass.getProgressIndicator().setVisible(false);
                         globalVariables.setThreadStartedReading(0);
                     }
+                }
+                //MenuItems
+                if(globalVariables.isMenuItemRegisterCarPoland()){
+                    hideOtherObjects.hide(createVboxes.getCarRegistration(),0);
+                    createVboxes.getCarRegistration().setVisible(true);
+
+                    globalVariables.setMenuItemRegisterCarPoland(false);
+                }
+                if(globalVariables.isMenuItemCarRegistrationDeregister()){
+                    hideOtherObjects.hide(new VBox(),1);
+                    createTextFields.getCarRegistrationDeregisterVinNumber().setVisible(true);
+                    createButtons.getCarRegistrationDeregister().setTranslateX(createTextFields.getCarRegistrationDeregisterVinNumber().getTranslateX());
+                    createButtons.getCarRegistrationDeregister().setTranslateY(createTextFields.getCarRegistrationDeregisterVinNumber().getTranslateY()
+                            +createTextFields.getCarRegistrationDeregisterVinNumber().getHeight());
+                    createButtons.getCarRegistrationDeregister().setVisible(true);
+                    globalVariables.setMenuItemCarRegistrationDeregister(false);
+                }
+                if(globalVariables.isMenuItemCarIdentityCardChange()){
+                    hideOtherObjects.hide(new VBox(),1);
+                    createButtons.getCarIdentityCardChange().setTranslateX(createTextFields.getCarIdentityCardVinNumber().getTranslateX());
+                    createButtons.getCarIdentityCardChange().setTranslateY(createTextFields.getCarIdentityCardVinNumber().getTranslateY()
+                            +createTextFields.getCarIdentityCardVinNumber().getLayoutBounds().getHeight());
+                    createTextFields.getCarIdentityCardVinNumber().setVisible(true);
+                    createButtons.getCarIdentityCardChange().setVisible(true);
+                    globalVariables.setMenuItemCarIdentityCardChange(false);
+                }
+                if(globalVariables.isMenuItemDriverCreateDriver()){
+                    hideOtherObjects.hide(createVboxes.getCreateDriver(),0);
+                    createVboxes.getCreateDriver().setVisible(true);
+                    globalVariables.setDriverChangeDataWasClicked(false);
+                    globalVariables.setDriverCheckWasClicked(false);
+                    globalVariables.setMenuItemDriverCreateDriver(false);
+                }
+                if(globalVariables.isMenuItemDriverCheckDriver()){
+                    hideOtherObjects.hide(new VBox(),1);
+                    createButtons.getDriverCheckDriver().setTranslateX(createTextFields.getDriverGivenPesel().getTranslateX());
+                    createButtons.getDriverCheckDriver().setTranslateY(createTextFields.getDriverGivenPesel().getTranslateY()
+                            +createTextFields.getDriverGivenPesel().getLayoutBounds().getHeight());
+                    createTextFields.getDriverGivenPesel().setVisible(true);
+                    createButtons.getDriverCheckDriver().setVisible(true);
+                    globalVariables.setDriverChangeDataWasClicked(false);
+                    globalVariables.setDriverCheckWasClicked(true);
+
+                    globalVariables.setMenuItemDriverCheckDriver(false);
+                }
+                if(globalVariables.isMenuItemDriverChangeDriverData()){
+                    hideOtherObjects.hide(new VBox(),1);
+                    createButtons.getDriverCheckDriver().setTranslateX(createTextFields.getDriverGivenPesel().getTranslateX());
+                    createButtons.getDriverCheckDriver().setTranslateY(createTextFields.getDriverGivenPesel().getTranslateY()
+                            +createTextFields.getDriverGivenPesel().getLayoutBounds().getHeight());
+                    createTextFields.getDriverGivenPesel().setVisible(true);
+                    createButtons.getDriverCheckDriver().setVisible(true);
+                    globalVariables.setDriverChangeDataWasClicked(true);
+                    globalVariables.setDriverCheckWasClicked(false);
+
+                    globalVariables.setMenuItemDriverChangeDriverData(false);
+                }
+                if(globalVariables.isMenuItemDriverLicenceDuplicate()){
+                    hideOtherObjects.hide(new VBox(),1);
+                    createButtons.getDriverLicenceDuplicate().setTranslateX(createTextFields.getDriverGivenPesel().getTranslateX());
+                    createButtons.getDriverLicenceDuplicate().setTranslateY(createTextFields.getDriverGivenPesel().getTranslateY()
+                            +createTextFields.getDriverGivenPesel().getLayoutBounds().getHeight());
+                    createTextFields.getDriverGivenPesel().setVisible(true);
+                    createButtons.getDriverLicenceDuplicate().setVisible(true);
+
+                    globalVariables.setMenuItemDriverLicenceDuplicate(false);
+                }
+                if(globalVariables.isMenuItemDriverLicenceNew()){
+                    hideOtherObjects.hide(new VBox(),1);
+                    createButtons.getDriverLicenceCreateNew().setTranslateX(createTextFields.getDriverGivenPesel().getTranslateX());
+                    createButtons.getDriverLicenceCreateNew().setTranslateY(createTextFields.getDriverGivenPesel().getTranslateY()
+                            +createTextFields.getDriverGivenPesel().getLayoutBounds().getHeight());
+                    createTextFields.getDriverGivenPesel().setVisible(true);
+                    createButtons.getDriverLicenceCreateNew().setVisible(true);
+
+                    globalVariables.setMenuItemDriverLicenceNew(false);
                 }
             }
                 //------------------------------------------------------------------------------

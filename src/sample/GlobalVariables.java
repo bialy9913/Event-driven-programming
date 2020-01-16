@@ -47,6 +47,15 @@ public class GlobalVariables {
     private ReadFromDatabase currentReadingThread;
     private boolean readingThreadIsRunning=false;
 
+    private boolean menuItemRegisterCarPoland=false;
+    private boolean menuItemCarRegistrationDeregister=false;
+    private boolean menuItemCarIdentityCardChange=false;
+    private boolean menuItemDriverCreateDriver=false;
+    private boolean menuItemDriverCheckDriver=false;
+    private boolean menuItemDriverChangeDriverData=false;
+    private boolean menuItemDriverLicenceDuplicate=false;
+    private boolean menuItemDriverLicenceNew=false;
+
     public GlobalVariables(){
 
     }
@@ -221,5 +230,70 @@ public class GlobalVariables {
     }
     public void setCurrentReadingThread(ReadFromDatabase currentReadingThread) {
         this.currentReadingThread = currentReadingThread;
+    }
+
+
+    public boolean isMenuItemRegisterCarPoland() {
+        return menuItemRegisterCarPoland;
+    }
+
+    public boolean isMenuItemCarRegistrationDeregister() {
+        return menuItemCarRegistrationDeregister;
+    }
+
+    public boolean isMenuItemCarIdentityCardChange() {
+        return menuItemCarIdentityCardChange;
+    }
+
+    public boolean isMenuItemDriverCreateDriver() {
+        return menuItemDriverCreateDriver;
+    }
+
+    public boolean isMenuItemDriverCheckDriver() {
+        return menuItemDriverCheckDriver;
+    }
+
+    public boolean isMenuItemDriverChangeDriverData() {
+        return menuItemDriverChangeDriverData;
+    }
+
+    public boolean isMenuItemDriverLicenceDuplicate() {
+        return menuItemDriverLicenceDuplicate;
+    }
+
+    public boolean isMenuItemDriverLicenceNew() {
+        return menuItemDriverLicenceNew;
+    }
+
+    public void setMenuItemRegisterCarPoland(boolean menuItemRegisterCarPoland) {
+        this.menuItemRegisterCarPoland = menuItemRegisterCarPoland;
+    }
+
+    public void setMenuItemCarRegistrationDeregister(boolean menuItemCarRegistrationDeregister) {
+        this.menuItemCarRegistrationDeregister = menuItemCarRegistrationDeregister;
+    }
+
+    public void setMenuItemCarIdentityCardChange(boolean menuItemCarIdentityCardChange) {
+        this.menuItemCarIdentityCardChange = menuItemCarIdentityCardChange;
+    }
+
+    public void setMenuItemDriverCreateDriver(boolean menuItemDriverCreateDriver) {
+        this.menuItemDriverCreateDriver = menuItemDriverCreateDriver;
+    }
+
+    public void setMenuItemDriverCheckDriver(boolean menuItemDriverCheckDriver) {
+        this.menuItemDriverCheckDriver = menuItemDriverCheckDriver;
+    }
+
+    public void setMenuItemDriverChangeDriverData(boolean menuItemDriverChangeDriverData) {
+        this.menuItemDriverChangeDriverData = menuItemDriverChangeDriverData;
+    }
+
+    public void setMenuItemDriverLicenceDuplicate(boolean menuItemDriverLicenceDuplicate) {
+        this.menuItemDriverLicenceDuplicate = menuItemDriverLicenceDuplicate;
+    }
+
+    public void setMenuItemDriverLicenceNew(boolean menuItemDriverLicenceNew) {
+        this.menuItemDriverLicenceNew = menuItemDriverLicenceNew;
     }
 }

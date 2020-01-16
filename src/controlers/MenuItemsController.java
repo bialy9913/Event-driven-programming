@@ -39,8 +39,7 @@ public class MenuItemsController extends Thread{
 
     private void clickOnRegisterCarPoland(){
         createMenuItems.getRegisterCarPoland().setOnAction(e ->{
-            hideOtherObjects.hide(createVboxes.getCarRegistration(),0);
-            createVboxes.getCarRegistration().setVisible(true);
+            globalVariables.setMenuItemRegisterCarPoland(true);
             if(globalVariables.getThreadStartedReading()==1){
                 globalVariables.setThreadStartedReading(2);
                 globalVariables.getCurrentReadingThread().setRunning(false);
@@ -51,12 +50,7 @@ public class MenuItemsController extends Thread{
     }
     private void clickOnCarRegistrationDeregister(){
         createMenuItems.getCarRegistrationDeregister().setOnAction(e->{
-            hideOtherObjects.hide(new VBox(),1);
-            createTextFields.getCarRegistrationDeregisterVinNumber().setVisible(true);
-            createButtons.getCarRegistrationDeregister().setTranslateX(createTextFields.getCarRegistrationDeregisterVinNumber().getTranslateX());
-            createButtons.getCarRegistrationDeregister().setTranslateY(createTextFields.getCarRegistrationDeregisterVinNumber().getTranslateY()
-                                                                       +createTextFields.getCarRegistrationDeregisterVinNumber().getHeight());
-            createButtons.getCarRegistrationDeregister().setVisible(true);
+            globalVariables.setMenuItemCarRegistrationDeregister(true);
             if(globalVariables.getThreadStartedReading()==1){
                 globalVariables.setThreadStartedReading(2);
                 globalVariables.getCurrentReadingThread().setRunning(false);
@@ -66,13 +60,9 @@ public class MenuItemsController extends Thread{
     }
     private void clickOnCarIdentityCardChange(){
         createMenuItems.getCarIdentityCardChange().setOnAction(e -> {
-            hideOtherObjects.hide(new VBox(),1);
-            createButtons.getCarIdentityCardChange().setTranslateX(createTextFields.getCarIdentityCardVinNumber().getTranslateX());
-            createButtons.getCarIdentityCardChange().setTranslateY(createTextFields.getCarIdentityCardVinNumber().getTranslateY()
-                    +createTextFields.getCarIdentityCardVinNumber().getLayoutBounds().getHeight());
-            createTextFields.getCarIdentityCardVinNumber().setVisible(true);
-            createButtons.getCarIdentityCardChange().setVisible(true);
+            globalVariables.setMenuItemCarIdentityCardChange(true);
             if(globalVariables.getThreadStartedReading()==1){
+                globalVariables.setMenuItemCarIdentityCardChange(true);
                 globalVariables.setThreadStartedReading(2);
                 globalVariables.getCurrentReadingThread().setRunning(false);
                 globalVariables.setCurrentReadingThread(null);
@@ -82,10 +72,7 @@ public class MenuItemsController extends Thread{
     //Driver--------------------------------------------------------------------------
     private void clickOnDriverCreateDriver(){
         createMenuItems.getDriverCreateDriver().setOnAction(e->{
-            hideOtherObjects.hide(createVboxes.getCreateDriver(),0);
-            createVboxes.getCreateDriver().setVisible(true);
-            globalVariables.setDriverChangeDataWasClicked(false);
-            globalVariables.setDriverCheckWasClicked(false);
+            globalVariables.setMenuItemDriverCreateDriver(true);
             if(globalVariables.getThreadStartedReading()==1){
                 globalVariables.setThreadStartedReading(2);
                 globalVariables.getCurrentReadingThread().setRunning(false);
@@ -95,14 +82,7 @@ public class MenuItemsController extends Thread{
     }
     private void clickOnDriverCheckDriver(){
         createMenuItems.getDriverCheckDriver().setOnAction(e->{
-            hideOtherObjects.hide(new VBox(),1);
-            createButtons.getDriverCheckDriver().setTranslateX(createTextFields.getDriverGivenPesel().getTranslateX());
-            createButtons.getDriverCheckDriver().setTranslateY(createTextFields.getDriverGivenPesel().getTranslateY()
-                    +createTextFields.getDriverGivenPesel().getLayoutBounds().getHeight());
-            createTextFields.getDriverGivenPesel().setVisible(true);
-            createButtons.getDriverCheckDriver().setVisible(true);
-            globalVariables.setDriverChangeDataWasClicked(false);
-            globalVariables.setDriverCheckWasClicked(true);
+            globalVariables.setMenuItemDriverCheckDriver(true);
             if(globalVariables.getThreadStartedReading()==1){
                 globalVariables.setThreadStartedReading(2);
                 globalVariables.getCurrentReadingThread().setRunning(false);
@@ -112,14 +92,7 @@ public class MenuItemsController extends Thread{
     }
     private void clickOnDriverChangeDriverData(){
         createMenuItems.getDriverChangeData().setOnAction(e->{
-            hideOtherObjects.hide(new VBox(),1);
-            createButtons.getDriverCheckDriver().setTranslateX(createTextFields.getDriverGivenPesel().getTranslateX());
-            createButtons.getDriverCheckDriver().setTranslateY(createTextFields.getDriverGivenPesel().getTranslateY()
-                    +createTextFields.getDriverGivenPesel().getLayoutBounds().getHeight());
-            createTextFields.getDriverGivenPesel().setVisible(true);
-            createButtons.getDriverCheckDriver().setVisible(true);
-            globalVariables.setDriverChangeDataWasClicked(true);
-            globalVariables.setDriverCheckWasClicked(false);
+            globalVariables.setMenuItemDriverChangeDriverData(true);
             if(globalVariables.getThreadStartedReading()==1){
                 globalVariables.setThreadStartedReading(2);
                 globalVariables.getCurrentReadingThread().setRunning(false);
@@ -130,12 +103,7 @@ public class MenuItemsController extends Thread{
     //--------------------------------------------------------------------------------
     private void clickOnDriverLicenceDuplicate(){
         createMenuItems.getDriverLicenceDuplicate().setOnAction(e->{
-            hideOtherObjects.hide(new VBox(),1);
-            createButtons.getDriverLicenceDuplicate().setTranslateX(createTextFields.getDriverGivenPesel().getTranslateX());
-            createButtons.getDriverLicenceDuplicate().setTranslateY(createTextFields.getDriverGivenPesel().getTranslateY()
-                    +createTextFields.getDriverGivenPesel().getLayoutBounds().getHeight());
-            createTextFields.getDriverGivenPesel().setVisible(true);
-            createButtons.getDriverLicenceDuplicate().setVisible(true);
+            globalVariables.setMenuItemDriverLicenceDuplicate(true);
             if(globalVariables.getThreadStartedReading()==1){
                 globalVariables.setThreadStartedReading(2);
                 globalVariables.getCurrentReadingThread().setRunning(false);
@@ -145,12 +113,7 @@ public class MenuItemsController extends Thread{
     }
     private void clickOnDriverLicenceNew(){
         createMenuItems.getDriverLicenceNew().setOnAction(e->{
-            hideOtherObjects.hide(new VBox(),1);
-            createButtons.getDriverLicenceCreateNew().setTranslateX(createTextFields.getDriverGivenPesel().getTranslateX());
-            createButtons.getDriverLicenceCreateNew().setTranslateY(createTextFields.getDriverGivenPesel().getTranslateY()
-                    +createTextFields.getDriverGivenPesel().getLayoutBounds().getHeight());
-            createTextFields.getDriverGivenPesel().setVisible(true);
-            createButtons.getDriverLicenceCreateNew().setVisible(true);
+            globalVariables.setMenuItemDriverLicenceNew(true);
             if(globalVariables.getThreadStartedReading()==1){
                 globalVariables.setThreadStartedReading(2);
                 globalVariables.getCurrentReadingThread().setRunning(false);
