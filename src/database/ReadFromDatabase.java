@@ -1,7 +1,7 @@
 package database;
 
-import createObjects.CreateTextFields;
-import createObjects.ProgressIndicatorClass;
+import createGUIObjects.CreateTextFields;
+import createGUIObjects.ProgressIndicatorClass;
 import entities.CarIdentityCard;
 import entities.DriverLicence;
 import entities.Drivers;
@@ -11,10 +11,7 @@ import synchronizedObjects.VarUsedToReadDB;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.TypedQuery;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.DriverManager;
-import java.sql.Statement;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -30,6 +27,7 @@ public class ReadFromDatabase extends Thread{
 
     private boolean carRegistration=false;
     private CarIdentityCard carIdentityCard=null;
+    private String driverPesel;
 
     private boolean deregisterCar=false;
 
@@ -149,9 +147,19 @@ public class ReadFromDatabase extends Thread{
     public void setCarIdentityCard(CarIdentityCard carIdentityCard) {
         this.carIdentityCard = carIdentityCard;
     }
+
+    public void setDriverPesel(String driverPesel) {
+        this.driverPesel = driverPesel;
+    }
     public void handleCarRegistration(){
         EntityManager entityManager=entityManagerFactory.createEntityManager();
+        Drivers driversTmp;
         try{
+
+            String statement = "select d from Drivers d where pesel='"+driverPesel+"'";
+            TypedQuery<Drivers> query = entityManager.createQuery(statement, Drivers.class);
+            driversTmp = query.getSingleResult();
+            carIdentityCard.setDriverId(driversTmp.getDriverId());
             entityManager.getTransaction().begin();
             entityManager.persist(carIdentityCard);
             entityManager.getTransaction().commit();
@@ -410,5 +418,8 @@ public class ReadFromDatabase extends Thread{
     }
     public void setChangeDriverDataConfirmation(boolean changeDriverDataConfirmation) {
         this.changeDriverDataConfirmation = changeDriverDataConfirmation;
+    }
+    public void handleDriverDriverCarList(){
+
     }
 }

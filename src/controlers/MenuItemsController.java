@@ -1,6 +1,7 @@
 package controlers;
 
-import createObjects.*;
+import createGUIObjects.*;
+import javafx.scene.layout.VBox;
 import synchronizedObjects.GlobalVariables;
 
 public class MenuItemsController extends Thread{
@@ -33,6 +34,7 @@ public class MenuItemsController extends Thread{
                 clickOnCarIdentityCardChange();
                 clickOnDriverChangeDriverData();
                 clickOnDriverCheckDriver();
+                clickOnDriverDriverCarList();
             }
         }
     }
@@ -114,6 +116,27 @@ public class MenuItemsController extends Thread{
     private void clickOnDriverLicenceNew(){
         createMenuItems.getDriverLicenceNew().setOnAction(e->{
             globalVariables.setMenuItemDriverLicenceNew(true);
+            if(globalVariables.getThreadStartedReading()==1){
+                globalVariables.setThreadStartedReading(2);
+                globalVariables.getCurrentReadingThread().setRunning(false);
+                globalVariables.setCurrentReadingThread(null);
+            }
+        });
+    }
+    private void clickOnDriverDriverCarList(){
+        createMenuItems.getDriverListCars().setOnAction(e->{
+            hideOtherObjects.hide(new VBox(),1);
+
+            globalVariables.setDriverDriverCarListWasClicked(true);
+
+            createButtons.getDriverCheckDriver().setTranslateX(createTextFields.getDriverGivenPesel().getTranslateX());
+            createButtons.getDriverCheckDriver().setTranslateY(createTextFields.getDriverGivenPesel().getTranslateY()
+                    +createTextFields.getDriverGivenPesel().getLayoutBounds().getHeight());
+            createTextFields.getDriverGivenPesel().setVisible(true);
+            createButtons.getDriverCheckDriver().setVisible(true);
+            globalVariables.setDriverChangeDataWasClicked(false);
+            globalVariables.setDriverCheckWasClicked(false);
+
             if(globalVariables.getThreadStartedReading()==1){
                 globalVariables.setThreadStartedReading(2);
                 globalVariables.getCurrentReadingThread().setRunning(false);

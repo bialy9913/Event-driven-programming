@@ -15,6 +15,7 @@ public class GlobalVariables {
     //----------------------------------------------------------------------------------------------
     private boolean driverCheckWasClicked =false;
     private boolean driverLicenceNewWasClicked=false;
+    private boolean driverDriverCarListWasClicked=false;
 
     //Made with threads-----------------------------------------------------
     private boolean createEmployeeWasClicked=false;
@@ -150,6 +151,14 @@ public class GlobalVariables {
     }
     public void setCreateDriverWasClicked(boolean createDriverWasClicked) {
         this.createDriverWasClicked = createDriverWasClicked;
+    }
+
+    public boolean isDriverDriverCarListWasClicked() {
+        return driverDriverCarListWasClicked;
+    }
+
+    public void setDriverDriverCarListWasClicked(boolean driverDriverCarListWasClicked) {
+        this.driverDriverCarListWasClicked = driverDriverCarListWasClicked;
     }
     //-------------------------------------------------------------------------------
 

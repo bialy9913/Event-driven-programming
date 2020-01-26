@@ -1,10 +1,6 @@
-package createObjects;
+package createGUIObjects;
 
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.paint.Color;
 
 public class CreateTextAreas {
     //Check driver--------------------------------------

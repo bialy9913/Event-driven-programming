@@ -1,4 +1,4 @@
-package createObjects;
+package createGUIObjects;
 
 import javafx.scene.control.Button;
 import javafx.scene.layout.Background;

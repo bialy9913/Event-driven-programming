@@ -1,4 +1,4 @@
-package createObjects;
+package createGUIObjects;
 
 import javafx.scene.layout.VBox;
 
@@ -30,6 +30,7 @@ public class CreateVboxes {
     private void createCarRegistration(){
         carRegistration.setVisible(false);
 
+        carRegistration.getChildren().add(createTextFields.getCarRegistrationDriverPesel());
         carRegistration.getChildren().add(createTextFields.getCarRegistrationVinNumber());
         carRegistration.getChildren().add(createTextFields.getCarRegistrationPlateNumber());
         carRegistration.getChildren().add(createTextFields.getCarRegistrationCarMake());

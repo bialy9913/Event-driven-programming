@@ -1,4 +1,4 @@
-package createObjects;
+package createGUIObjects;
 
 import javafx.scene.control.MenuItem;
 
@@ -18,6 +18,7 @@ public class CreateMenuItems {
     private MenuItem driverCreateDriver=new MenuItem();
     private MenuItem driverCheckDriver=new MenuItem();
     private MenuItem driverChangeData=new MenuItem();
+    private MenuItem driverListCars=new MenuItem();
     //-------------------------------------------------------
 
     public CreateMenuItems(){
@@ -29,6 +30,7 @@ public class CreateMenuItems {
         driverCreateDriver.setText("Dodaj kierowcę");
         driverCheckDriver.setText("Sprawdź kierowcę");
         driverChangeData.setText("Zmień dane kierowcy");
+        driverListCars.setText("Wylistuj samochody");
     }
     public MenuItem getRegisterCarPoland() {
         return registerCarPoland;
@@ -53,5 +55,8 @@ public class CreateMenuItems {
     }
     public MenuItem getCarRegistrationDeregister() {
         return carRegistrationDeregister;
+    }
+    public MenuItem getDriverListCars() {
+        return driverListCars;
     }
 }

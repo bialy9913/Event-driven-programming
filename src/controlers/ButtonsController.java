@@ -1,6 +1,6 @@
 package controlers;
 
-import createObjects.*;
+import createGUIObjects.*;
 import database.ReadFromDatabase;
 import entities.CarIdentityCard;
 import entities.Drivers;
@@ -31,6 +31,7 @@ public class ButtonsController extends Thread{
     private ReadFromDatabase readFromDatabase;
     private boolean createThread=false;
     private ProgressIndicatorClass progressIndicatorClass;
+    private DriverCarList driverCarList;
     public ButtonsController(int APP_W, int APP_H, CreateButtons createButtons
                                , CreateTextFields createTextFields, Texts texts
                                , GlobalVariables globalVariables
@@ -38,7 +39,8 @@ public class ButtonsController extends Thread{
                                , CreateHboxes createHboxes, EntityManagerFactory entityManagerFactory
                                , CreateTextAreas createTextAreas
                                , VarUsedToReadDB varUsedToReadDB
-                               , ProgressIndicatorClass progressIndicatorClass)
+                               , ProgressIndicatorClass progressIndicatorClass
+                               , DriverCarList driverCarList)
     {
         this.APP_W=APP_W;
         this.APP_H=APP_H;
@@ -52,6 +54,7 @@ public class ButtonsController extends Thread{
         this.createTextAreas=createTextAreas;
         this.varUsedToReadDB=varUsedToReadDB;
         this.progressIndicatorClass=progressIndicatorClass;
+        this.driverCarList=driverCarList;
     }
 
     @Override
@@ -114,7 +117,7 @@ public class ButtonsController extends Thread{
     }
     public void clickOnCarRegistration(){
         createButtons.getCarRegistration().setOnMouseClicked(e -> {
-            if(!(createTextFields.getCarRegistrationVinNumber().getText().equals("")&&createTextFields.getCarRegistrationPlateNumber().getText().equals("")
+            if(!(createTextFields.getDriverPesel().getText().equals("")&&createTextFields.getCarRegistrationVinNumber().getText().equals("")&&createTextFields.getCarRegistrationPlateNumber().getText().equals("")
                  &&createTextFields.getCarRegistrationCarMake().getText().equals("")&&createTextFields.getCarRegistrationCarModel().getText().equals("")
                  &&createTextFields.getCarRegistrationEngineCapacity().getText().equals(""))){
 
@@ -131,6 +134,8 @@ public class ButtonsController extends Thread{
                 readFromDatabase=new ReadFromDatabase(createTextFields,varUsedToReadDB,entityManagerFactory,progressIndicatorClass);
                 readFromDatabase.setCarIdentityCard(carIdentityCard);
                 readFromDatabase.setCarRegistration(true);
+                readFromDatabase.setDriverPesel(createTextFields.getCarRegistrationDriverPesel().getText());
+                createTextFields.getCarRegistrationDriverPesel().setText("");
                 createThread=true;
                 globalVariables.setThreadStartedReading(1);
                 globalVariables.setCurrentReadingThread(readFromDatabase);
@@ -268,6 +273,9 @@ public class ButtonsController extends Thread{
                         createTextAreas.setDriverPostCode(drivers.getPostcode());
                     }
                     //----------------------------------------------------------
+                    if(globalVariables.isDriverDriverCarListWasClicked()){
+                        //tutaj sam watek odczytujacy
+                    }
 
                 }catch(Exception e1){
                     texts.setTextOfObjectNotFound("kierowcy");

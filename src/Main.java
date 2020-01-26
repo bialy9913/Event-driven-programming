@@ -1,7 +1,7 @@
 import controlers.ButtonsController;
 import controlers.Controller;
 import controlers.MenuItemsController;
-import createObjects.*;
+import createGUIObjects.*;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -32,6 +32,7 @@ public class Main extends Application{
     private Texts texts=new Texts();
     private CreateTextFields createTextFields=new CreateTextFields(APP_W,APP_H);
     private CreateButtons createButtons=new CreateButtons(APP_W,APP_H,createTextFields);
+    private DriverCarList driverCarList=new DriverCarList();
     private CreateMenuItems createMenuItems=new CreateMenuItems();
     private GlobalVariables globalVariables =new GlobalVariables();
     private VarUsedToReadDB varUsedToReadDB=new VarUsedToReadDB();
@@ -45,7 +46,7 @@ public class Main extends Application{
     private ButtonsController buttonsController =new ButtonsController(APP_W,APP_H,createButtons,createTextFields,texts
                                                                             , globalVariables,createVboxes,createHboxes,entityManagerFactory
                                                                             ,createTextAreas,varUsedToReadDB
-                                                                            , progressIndicatorClass);
+                                                                            , progressIndicatorClass,driverCarList);
     private MenuItemsController menuItemsController =new MenuItemsController(createMenuItems,createTextFields,createVboxes, globalVariables
                                                                                   ,createButtons);
     //variable used to count current time of showing alerts
@@ -94,6 +95,7 @@ public class Main extends Application{
         root.getChildren().add(createVboxes.getCheckDriverTextAreas());
         root.getChildren().add(createVboxes.getChangeDriverDataTextAreas());
         root.getChildren().add(progressIndicatorClass.getProgressIndicator());
+        root.getChildren().add(driverCarList.getListView());
 
 
         KeyFrame frame = new KeyFrame(Duration.seconds(0.033), event -> {

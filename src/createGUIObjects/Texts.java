@@ -1,4 +1,4 @@
-package createObjects;
+package createGUIObjects;
 
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;

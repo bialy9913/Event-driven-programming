@@ -8,6 +8,7 @@ public class CarIdentityCard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int carIdentityCardId;
+    private int driverId;
     private String vinNumber;
     private String plateNumber;
     private String carMake;
@@ -19,6 +20,12 @@ public class CarIdentityCard {
 
     }
 
+    public int getDriverId() {
+        return driverId;
+    }
+    public void setDriverId(int driverId) {
+        this.driverId = driverId;
+    }
     public int getCarIdentityCardId() {
         return carIdentityCardId;
     }

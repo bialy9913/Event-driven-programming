@@ -1,4 +1,4 @@
-package createObjects;
+package createGUIObjects;
 
 import javafx.scene.control.MenuButton;
 import javafx.scene.layout.Background;
@@ -39,6 +39,7 @@ public class CreateMenuButtons {
         driver.getItems().add(createMenuItems.getDriverCreateDriver());
         driver.getItems().add(createMenuItems.getDriverCheckDriver());
         driver.getItems().add(createMenuItems.getDriverChangeData());
+        driver.getItems().add(createMenuItems.getDriverListCars());
         driver.setBackground(Background.EMPTY);
         driver.setTextFill(Paint.valueOf("white"));
         driver.setFont(new Font(driver.getFont().getName(),20.0));

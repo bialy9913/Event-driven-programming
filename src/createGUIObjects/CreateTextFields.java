@@ -1,7 +1,6 @@
-package createObjects;
+package createGUIObjects;
 
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -14,6 +13,7 @@ public class CreateTextFields {
     private TextField textFieldLogin=new TextField();
     private PasswordField passwordField=new PasswordField();
 
+    private TextField carRegistrationDriverPesel=new TextField();
     private TextField carRegistrationVinNumber=new TextField();
     private TextField carRegistrationPlateNumber=new TextField();
     private TextField carRegistrationCarMake=new TextField();
@@ -74,11 +74,15 @@ public class CreateTextFields {
         createCarRegistrationDeregister();
     }
     private void createRegisterCarFields(){
+        carRegistrationDriverPesel.setPromptText("PESEL kierowcy");
         carRegistrationVinNumber.setPromptText("Numer VIN");
         carRegistrationPlateNumber.setPromptText("Numer rejestracyjny");
         carRegistrationCarMake.setPromptText("Marka samochodu");
         carRegistrationCarModel.setPromptText("Model samochodu");
         carRegistrationEngineCapacity.setPromptText("Pojemność silnika");
+
+        carRegistrationDriverPesel.setBackground(new Background(new BackgroundFill(Color.WHITE,
+                new CornerRadii(1024), null)));
         carRegistrationVinNumber.setBackground(new Background(new BackgroundFill(Color.WHITE,
                 new CornerRadii(1024), null)));
         carRegistrationPlateNumber.setBackground(new Background(new BackgroundFill(Color.WHITE,
@@ -250,6 +254,10 @@ public class CreateTextFields {
 
     public TextField getTextFieldLogin() {
         return textFieldLogin;
+    }
+
+    public TextField getCarRegistrationDriverPesel() {
+        return carRegistrationDriverPesel;
     }
 
     public TextField getCarRegistrationVinNumber() {
