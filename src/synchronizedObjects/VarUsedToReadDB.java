@@ -3,6 +3,9 @@ package synchronizedObjects;
 import database.ReadFromDatabase;
 import entities.Users;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class VarUsedToReadDB {
 
     private int logInSuccessful=0;
@@ -24,6 +27,9 @@ public class VarUsedToReadDB {
     private int carIdentityCardChangeCardExists=0;
 
     private int threadStartedReading=0;
+
+    private int driverDriverCarList=0;
+    private List<String> list=new ArrayList<>();
 
     public VarUsedToReadDB(){
 
@@ -95,5 +101,18 @@ public class VarUsedToReadDB {
     }
     public void setThreadStartedReading(int threadStartedReading) {
         this.threadStartedReading = threadStartedReading;
+    }
+
+    public int getDriverDriverCarList() {
+        return driverDriverCarList;
+    }
+    public List<String> getList() {
+        return list;
+    }
+    public void setDriverDriverCarList(int driverDriverCarList) {
+        this.driverDriverCarList = driverDriverCarList;
+    }
+    public void setList(List<String> list) {
+        this.list = list;
     }
 }

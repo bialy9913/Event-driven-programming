@@ -14,6 +14,7 @@ import javax.persistence.TypedQuery;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ReadFromDatabase extends Thread{
     private volatile boolean running=true;
@@ -45,6 +46,9 @@ public class ReadFromDatabase extends Thread{
 
     private boolean changeDriverDataConfirmation=false;
     private ArrayList<String > sqlUpdateQueries=new ArrayList<>();
+
+    private boolean driverDriverCarList=false;
+    private String driverDriverCarListPesel;
 
     public ReadFromDatabase(CreateTextFields createTextFields
             , VarUsedToReadDB varUsedToReadDB
@@ -113,6 +117,11 @@ public class ReadFromDatabase extends Thread{
                 if(changeDriverDataConfirmation){
                     handleChangeDriverDataConfirmation();
                     changeDriverDataConfirmation=false;
+                    running=false;
+                }
+                if(driverDriverCarList){
+                    handleDriverDriverCarList();
+                    driverDriverCarList=false;
                     running=false;
                 }
                 if(!running){
@@ -419,7 +428,30 @@ public class ReadFromDatabase extends Thread{
     public void setChangeDriverDataConfirmation(boolean changeDriverDataConfirmation) {
         this.changeDriverDataConfirmation = changeDriverDataConfirmation;
     }
-    public void handleDriverDriverCarList(){
 
+    public void setDriverDriverCarListPesel(String driverDriverCarListPesel) {
+        this.driverDriverCarListPesel = driverDriverCarListPesel;
+    }
+    public void handleDriverDriverCarList(){
+        EntityManager entityManager=entityManagerFactory.createEntityManager();
+
+        Drivers drivers;
+        String statement1="select d from Drivers d where pesel='"+driverDriverCarListPesel+"'";
+        TypedQuery<Drivers> query1=entityManager.createQuery(statement1,Drivers.class);
+        drivers=query1.getSingleResult();
+
+        CarIdentityCard carIdentityCardDriverCarList;
+        String statement="select c from CarIdentityCard c where driverId='"+drivers.getDriverId()+"'";
+        TypedQuery<CarIdentityCard> query = entityManager.createQuery(statement, CarIdentityCard.class);
+        List list=query.getResultList();
+        varUsedToReadDB.getList().clear();
+        for(int i=0;i<list.size();i++){
+            carIdentityCardDriverCarList=(CarIdentityCard)list.get(i);
+            varUsedToReadDB.getList().add(carIdentityCardDriverCarList.getCarMake()+" "+carIdentityCardDriverCarList.getCarModel());
+        }
+        varUsedToReadDB.setDriverDriverCarList(1);
+    }
+    public void setDriverDriverCarList(boolean driverDriverCarList) {
+        this.driverDriverCarList = driverDriverCarList;
     }
 }

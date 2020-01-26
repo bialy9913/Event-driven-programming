@@ -259,9 +259,6 @@ public class ButtonsController extends Thread{
                         createTextFields.setDriverDataLocation(drivers.getLocation());
                         createTextFields.setDriverDataPostCode(drivers.getPostcode());
                     }
-                    else{
-                        createTextFields.getDriverGivenPesel().setText("");
-                    }
                     //Driver Licence duplicate
                     if(globalVariables.isDriverCheckWasClicked()){
                         createVboxes.getCheckDriverTextAreas().setVisible(true);
@@ -274,7 +271,18 @@ public class ButtonsController extends Thread{
                     }
                     //----------------------------------------------------------
                     if(globalVariables.isDriverDriverCarListWasClicked()){
-                        //tutaj sam watek odczytujacy
+
+                        readFromDatabase=new ReadFromDatabase(createTextFields,varUsedToReadDB,entityManagerFactory,progressIndicatorClass);
+                        readFromDatabase.setDriverDriverCarList(true);
+                        readFromDatabase.setDriverDriverCarListPesel(createTextFields.getDriverGivenPesel().getText());
+                        createThread=true;
+                        globalVariables.setThreadStartedReading(1);
+                        globalVariables.setCurrentReadingThread(readFromDatabase);
+
+                        globalVariables.setDriverDriverCarListWasClicked(false);
+                    }
+                    else{
+                        createTextFields.getDriverGivenPesel().setText("");
                     }
 
                 }catch(Exception e1){

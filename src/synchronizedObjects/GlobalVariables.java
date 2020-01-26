@@ -3,6 +3,9 @@ package synchronizedObjects;
 import database.ReadFromDatabase;
 import entities.Users;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GlobalVariables {
     private boolean toShowNotIncorrectCredentials;
     private boolean toShowNotFilledFields;
@@ -56,6 +59,9 @@ public class GlobalVariables {
     private boolean menuItemDriverChangeDriverData=false;
     private boolean menuItemDriverLicenceDuplicate=false;
     private boolean menuItemDriverLicenceNew=false;
+
+    private int driverDriverCarList=0;
+    private List<String> list=new ArrayList<>();
 
     public GlobalVariables(){
 
@@ -304,5 +310,21 @@ public class GlobalVariables {
 
     public void setMenuItemDriverLicenceNew(boolean menuItemDriverLicenceNew) {
         this.menuItemDriverLicenceNew = menuItemDriverLicenceNew;
+    }
+
+    public int getDriverDriverCarList() {
+        return driverDriverCarList;
+    }
+
+    public List<String> getList() {
+        return list;
+    }
+
+    public void setDriverDriverCarList(int driverDriverCarList) {
+        this.driverDriverCarList = driverDriverCarList;
+    }
+
+    public void setList(List<String> list) {
+        this.list = list;
     }
 }

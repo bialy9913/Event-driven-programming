@@ -2,6 +2,7 @@ import controlers.ButtonsController;
 import controlers.Controller;
 import controlers.MenuItemsController;
 import createGUIObjects.*;
+import entities.CarIdentityCard;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -293,6 +294,14 @@ public class Main extends Application{
                         globalVariables.setObjectNotFound(true);
                     }
                     globalVariables.setCarIdentityCardChangeCardExists(0);
+                }
+                if(globalVariables.getDriverDriverCarList()!=0){
+                    driverCarList.getListView().setVisible(true);
+                    driverCarList.getListView().getItems().clear();
+                    for(int i=0;i<globalVariables.getList().size();i++){
+                        driverCarList.getListView().getItems().add(globalVariables.getList().get(i));
+                    }
+                    globalVariables.setDriverDriverCarList(0);
                 }
                 //--Indicator
                 if(globalVariables.getThreadStartedReading()!=0){

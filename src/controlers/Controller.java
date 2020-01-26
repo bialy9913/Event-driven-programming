@@ -63,6 +63,17 @@ public class Controller extends Thread{
 
             varUsedToReadDB.setThreadStartedReading(0);
         }
+        if(varUsedToReadDB.getDriverDriverCarList()!=0){
+            globalVariables.getList().clear();
+            for(int i=0;i<varUsedToReadDB.getList().size();i++){
+                globalVariables.getList().add(varUsedToReadDB.getList().get(i));
+            }
+
+            globalVariables.setDriverDriverCarList(varUsedToReadDB.getDriverDriverCarList());
+
+            varUsedToReadDB.setDriverDriverCarList(0);
+            varUsedToReadDB.getList().clear();
+        }
     }
 
     @Override
